@@ -1,0 +1,21 @@
+<form ngForm="form " (submit)="submit()">
+<div class="form-group" class="col-md-6">
+    <label for="name"> Student Name : </label>
+    <input type="text" [(ngModel)]="service.student.name" name="name" placeholder="Your name.."/>
+</div>
+<div class="form-group" class="col-md-6" >
+    <label for="registration_number"> Registeration Number :  </label>
+    <input type="text" [(ngModel)]="service.student.registrationNumber" name="registration_number" placeholder="Your registeration number.."/>
+</div>
+<div class="form-group" class="col-md-6" >
+    <label for="grade"> Student Grade : </label>
+    <input type="text" [(ngModel)]="service.student.Grade" name="grade" placeholder="Your Student grade..."/>
+</div>
+<div class="form-group" class="col-md-6">
+    <app-upload-file (onUploadFinished)="uploadFinished($event)" ></app-upload-file>
+</div>
+<input type="submit" class="btn btn-dark btn-lg" name="submit" value=" Save " />
+
+<a routerLink="" class="previous">&laquo; Previous</a>
+</form>
+<router-outlet></router-outlet>  

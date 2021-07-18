@@ -1,0 +1,33 @@
+
+<div  class="Search-student">
+<input type="text" #myInput class="form-control"  [(ngModel)]="name" (input)="Search()" placeholder="Start searching for a student by name "  >
+</div>
+
+<button routerLink="Add" class="Add-button"  >Add New student</button>
+
+<table class="table table-condensed ">
+    <thead class="thead-dark" >
+       <tr >
+        <th scope="col">Name</th>
+        <th scope="col">Regesteration Number</th>
+        <th scope="col">Grade</th>
+        <th scope="col">Image</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        </tr>
+    
+    </thead>
+    <tbody>
+        <tr (click)="fillData(item)" *ngFor="let item of service.students">
+            
+            <td> {{item.name}} </td>
+            <td> {{item.registrationNumber}}</td>
+            <td> {{item.grade}} </td>
+            <td > <img [src]="createImgPath(item.image)" /> </td>
+            <td (click)="delete(item.id)"><span class="btn btn-danger">  Delete </span></td>
+            <td><button routerLink="Add" class="btn btn-success"> Edit </button></td>
+
+        </tr>
+    </tbody>
+</table> 
+<router-outlet></router-outlet>
